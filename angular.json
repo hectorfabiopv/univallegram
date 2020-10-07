@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "univallegram"
+    }
+  },
+  "defaultProject": "univallegram",
+  "cli": {
+    "analytics": "8dd09d1e-fc66-4d4e-8b85-61d532858ae0"
+  }
 }
