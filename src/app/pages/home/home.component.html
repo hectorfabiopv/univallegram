@@ -1,0 +1,33 @@
+
+    <!--div class="card" *ngFor="let video of videos">
+        <img [src]="video.thumbnails.high.url" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{video.title}}</h5>
+            <p class="card-text">
+                <strong>Autor:</strong>{{video.channelTitle}}
+            </p>
+            <p>
+                <strong>Publicado:</strong>{{video.publishedAt | date}}
+            </p>
+            <button class="btn btn-outline-dark btn-block" (click)="mostrarVideo(video)">
+                Ver video
+            </button>
+        </div>
+    </div-->
+
+			<div class="univalle-gram-initial-column col s3 m3 l3 xl3 modal-trigger" (click)="mostrarVideo(video)">	
+				<div class="card univalle-gram" *ngFor="let video of videos">
+        			<div class="card-image">
+        			  <img [src]="video.thumbnails.high.url">
+        			  <span class="card-title"><strong>{{video.title}}</strong></span>
+        			</div>
+        			<div class="card-content">
+        			  <p><strong>{{video.channelTitle}}</strong></p><br>
+        			  <p>17 visualizaciones . {{video.publishedAt | date}}</p>
+                    </div>
+                    <button class="btn btn-outline-dark btn-block" (click)="mostrarVideo(video)">
+                        Ver video
+                    </button>
+                  </div>
+			</div>
+      			
