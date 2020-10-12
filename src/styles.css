@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.card-columns {
+    column-count: 4;
+}
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}

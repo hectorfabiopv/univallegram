@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+      <div class="col m4 l4 xl4"></div>
+      <div class="col s12 m4 l4 xl4">
+        <div class="card" style="background-color: #f5f5f5  !important;">
+          <form (ngSubmit)="login(f)" #f="ngForm">
+            <div class="card-content">
+            <div align="center"><span class="card-title"><strong>¡Inicia sesión en tu cuenta de UniValleGram!</strong></span></div>
+              <div class="row">
+                <div class="input-field col s12 univalle-gram">
+                  <input id="email" name="email" type="email" [(ngModel)]="usuario.email" required>
+                  <label for="email">Correo electrónico</label>
+                  <span class="helper-text">El correo debe ser el institucional.</span>
+                  <span *ngIf="f.submitted && f.controls['email'].errors" style="color: red;">El email es obligatorio.</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 univalle-gram">
+                  <input id="password" name="password" type="password" [(ngModel)]="usuario.password" required minlength="7">
+                  <label for="password">Contraseña</label>
+                  <span *ngIf="f.submitted && f.controls['password'].errors" style="color: red;">Debe ingresar una contraseña de al menos 7 caracteres.</span>
+                </div>
+              </div>
+              <div class="row">
+                <div align="center">
+                  <button class="btn univalle-gram" type="submit" style="color: white !important;">Iniciar sesión</button><br>
+                  o <a href="#!">Recuperar contraseña</a><br><br><br>
+                  ¿No tienes una cuenta? <a [routerLink]="['/register']">Regístrate</a>
+                </div>
+              </div>
+            </div>
+        </form>
+        </div>
+      </div>
+      <div class="col m4 l4 xl4"></div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from '../../services/youtube.service';
-import { Video } from '../../models/youtube.models';
-import Swal from 'sweetalert2';
+import { Video } from '../../models/youtube.model';
 
 @Component({
   selector: 'app-home',
@@ -21,17 +20,15 @@ export class HomeComponent implements OnInit {
     this.youtubeService.getVideos()
     .subscribe(resp => {
       this.videos.push(...resp);
-      console.log(resp);
+      //console.log(resp);
     });
   }
 
   mostrarVideo(video: Video) {
     console.log(video);
-
-    Swal.fire({
-      html: `
-              <h4>${ video.title }</h4>
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/${video.resourceId.videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-    });
+    const videoId = video.resourceId.videoId;
+    const urlVideo = "https://www.youtube.com/embed/"+videoId;
+    document.getElementById('univalle-gram-iframe-play-video').setAttribute("src", urlVideo);
+    document.getElementById('univalle-gram-btn-trigger-modal-play-video').click();
   }
 }
