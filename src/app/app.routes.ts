@@ -11,6 +11,6 @@ export const ROUTES: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
     //{ path: 'search', component: SearchComponent },  
-    { path: '', pathMatch: 'full', redirectTo:'login' },
+    //{ path: '', pathMatch: 'full', redirectTo:'login' },
     //{ path: '**', pathMatch: 'full', redirectTo:'login' }
 ];
