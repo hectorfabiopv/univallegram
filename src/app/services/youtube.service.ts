@@ -30,4 +30,30 @@ export class YoutubeService {
           return resp.items;
         }), map( items => items.map( video => video.snippet )))
   } 
+
+  subirVideo(file: File) {
+    const url = `${ this.youtubeUrl }/videos`;
+    /*
+      snippet.title
+      snippet.description
+      snippet.tags[]
+      snippet.categoryId
+      status.privacyStatus
+      status.embeddable
+      status.license
+      status.publicStatsViewable
+    */
+
+    const video = {
+      snippet: {
+        title: "Test",
+        description: "Test de video",
+      },
+      fileDetails: file
+    };
+
+    return this.http.post(
+      url, video
+    );
+  }
 }
