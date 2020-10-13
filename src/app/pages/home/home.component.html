@@ -3,7 +3,7 @@
   <div class="row univalle-gram">
     <app-leftmenu></app-leftmenu>
     <div class="card-columns"> 	
-        <div class="card univalle-gram" *ngFor="let video of videos">
+        <div class="card univalle-gram" *ngFor="let video of videos" (click)="mostrarVideo(video)">
             <img [src]="video.thumbnails.high.url" class="card-img-top" alt="">
             <div class="container">
                 <h5 class="card-title">{{video.title}}</h5>
