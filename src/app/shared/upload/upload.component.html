@@ -26,7 +26,8 @@
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text">
             </div>
-          </div>
+        </div>
+        <input id="urlLastUploadedVideo" type="text" [value]="urlVideo | async" hidden="hidden">
   </div>
   <div class="modal-footer">
         <button class="modal-close waves-effect waves-green btn-flat" type="submit">Subir</button>

@@ -31,21 +31,24 @@ export class UploadComponent implements OnInit {
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     this.uploadPercent = task.percentageChanges();
-    task.snapshotChanges().pipe( finalize(() => this.urlVideo = ref.getDownloadURL()) ).subscribe(
+    task.snapshotChanges().pipe( finalize(() => this.urlVideo = ref.getDownloadURL() ) ).subscribe(
       resp => {
-        console.log(resp);
-        this.video.url =  resp.state == "success" ? ref.getDownloadURL.toString() : "undefined";  
-
-        if(this.video.url != "undefined") {
-          //Setear los datos del usuario en la propiedad Author del modelo video
+        if(resp.state == "success") {
+          ref.getDownloadURL().subscribe(url => {
+            //Setear los datos del usuario en la propiedad Author del modelo video
           this.video.author = { nombreCompleto: "Hector" };
           this.video.playList = "uploads";
+
+          //AQUI ES DONDE ME GUSTARIA CAPTURAR LA URL
+          //this.video.url = (<HTMLInputElement>document.getElementById("urlLastUploadedVideo")).value;
+          this.video.url = url;
 
           this.videoService.uploadVideo(this.video)
           .subscribe(resp => {
             console.log(resp); 
           }, (err)=>{
             console.log(err.error.error.message);
+          });
           });
         }
       }  
