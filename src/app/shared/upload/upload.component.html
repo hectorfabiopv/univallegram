@@ -2,12 +2,12 @@
     <div class="modal-content" align="center">
         <h4>Subir vídeo</h4>
         <div class="input-field col s12 univalle-gram">
-          <input id="titulo" name="titulo" type="text" required>
-          <label for="titulo">Título</label>
+          <input id="title" name="title" type="text" required [(ngModel)]="video.title">
+          <label for="title">Título</label>
         </div>
         <div class="input-field col s12 univalle-gram">
-          <input id="descripcion" name="descripcion" type="text" required>
-          <label for="descripcion">Descripción</label>
+          <input id="description" name="description" type="text" required [(ngModel)]="video.description">
+          <label for="description">Descripción</label>
         </div>
         <div class="file-field input-field">
           <div class="btn univalle-gram">

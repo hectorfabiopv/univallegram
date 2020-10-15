@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
     this.usuarioService.crearUsuario(datosUsuario)
     .subscribe(resp => {
       console.log(resp);
+    }, (err)=>{
+      console.log(err.error.error.message);
     }); 
   }
 }
