@@ -14,3 +14,13 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCH40ddsEesxh0cAa0seT9-DsvvSqPneRY",
+  authDomain: "univallegram-1920a.firebaseapp.com",
+  databaseURL: "https://univallegram-1920a.firebaseio.com",
+  projectId: "univallegram-1920a",
+  storageBucket: "univallegram-1920a.appspot.com",
+  messagingSenderId: "216976051344",
+  appId: "1:216976051344:web:599bd4851df00e2367dc15"
+};

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { YoutubeService } from '../../services/youtube.service';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-upload',
@@ -9,16 +9,18 @@ import { YoutubeService } from '../../services/youtube.service';
 })
 export class UploadComponent implements OnInit {
 
-  constructor(private youtube: YoutubeService) { }
+  constructor(private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm) {
-    if(form.invalid) {return;}
-    this.youtube.subirVideo((<HTMLInputElement>document.getElementById('fileVideo')).files[0])
-    .subscribe(resp => {
-      console.log(resp);
-    });
+    //if(form.invalid) {return;}
+    const id = Math.random().toString(36).substring(2);
+    const file = (<HTMLInputElement>document.getElementById('fileVideo')).files[0];
+    const filePath = `videos/${id}`;
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    
   }
 }

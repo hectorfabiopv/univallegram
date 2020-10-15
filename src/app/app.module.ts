@@ -14,6 +14,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UploadComponent } from './shared/upload/upload.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { firebaseConfig } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { YoutubehomeComponent } from './pages/youtubehome/youtubehome.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +29,15 @@ import { UploadComponent } from './shared/upload/upload.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UploadComponent
+    UploadComponent,
+    YoutubehomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot( ROUTES, { useHash: true } ),
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

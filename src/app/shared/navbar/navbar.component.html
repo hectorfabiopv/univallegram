@@ -1,17 +1,24 @@
-<nav class="red accent-4" role="navigation">
+<nav id="univalle-gram-navbar" class="red accent-4" role="navigation">
     <div class="nav-wrapper">
 
         <ul class="left hide-on-med-and-down">
-            <li><a id="univalle-gram-btn-control-panel" class="btn-floating red accent-4" href="#"><i class="material-icons">menu</i></a></li> 
+            <li><a id="univalle-gram-btn-control-panel" class="btn-floating red accent-4" href="javascript:void(0);"><i class="material-icons">menu</i></a></li> 
         </ul>
 
         <a id="logo-container" href="#"><img class="responsive-img" src="../../../assets/images/logoTransparent.png" width="40px" height="124px"><strong>UniValleGram</strong></a>
 
         <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" data-target="create" href="#" title="Crear"><i class="material-icons">video_call</i></a></li>
-            <li><a href="#" title="Aplicaciones de UniValleGram"><i class="material-icons">apps</i></a></li>
-            <li><a href="#" title="Notificaciones"><i class="material-icons">notifications</i></a></li>
-            <li><a class="dropdown-trigger" data-target="avatar" href="#" title="Avatar"><i class="material-icons">person_pin</i></a></li>
+            <li *ngIf="auth.loggedIn"><a class="dropdown-trigger" data-target="create" href="javascript:void(0);" title="Crear"><i class="material-icons">video_call</i></a></li>
+            <li *ngIf="auth.loggedIn"><a href="javascript:void(0);" title="Aplicaciones de UniValleGram"><i class="material-icons">apps</i></a></li>
+            <li *ngIf="auth.loggedIn"><a href="javascript:void(0);" title="Notificaciones"><i class="material-icons">notifications</i></a></li>
+            <li>
+                <a class="dropdown-trigger" data-target="avatar" href="#" title="Avatar">
+                    <i class="material-icons" *ngIf="auth.loggedIn">person_pin</i>
+                </a>
+                <button class="btn red accent-4" style="color: white !important;" *ngIf="!auth.loggedIn" [routerLink]="['/login']">
+                    Ingresar
+                </button>
+            </li>
         </ul>
     </div>
 </nav>

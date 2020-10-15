@@ -20,7 +20,6 @@
   	});
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown();
-     $('.modal').modal();
-
+    $('.modal').modal();
   }); // end of document ready
 })(jQuery); // end of jQuery name space
