@@ -23,13 +23,6 @@
                 </div>
                 <div class="row">
                   <div class="input-field col s12 univalle-gram">
-                    <input id="idCanal" name="idCanal" type="text" [(ngModel)]="usuario.idCanal" required>
-                    <label for="idCanal">Id. canal de youtube</label>
-                    <span *ngIf="f.submitted && f.controls['idCanal'].errors" style="color: red;">El id del canal es obligatorio.</span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12 univalle-gram">
                     <input id="email" name="email" type="email" placeholder="@correounivalle.edu.co" [(ngModel)]="usuario.email" required>
                     <label for="email">Correo electrónico</label>
                     <span class="helper-text">El correo debe ser el institucional.</span>

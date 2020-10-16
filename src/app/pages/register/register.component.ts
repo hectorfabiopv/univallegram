@@ -24,22 +24,22 @@ export class RegisterComponent implements OnInit {
     this.auth.nuevoUsuario(this.usuario)
     .subscribe(resp => {
       console.log(resp);
+
+      const datosUsuario = {
+        codigo: this.usuario.codigo,
+        nombreCompleto: this.usuario.nombreCompleto,
+        uid: this.usuario.uid,
+        email: this.usuario.email
+      }
+  
+      this.usuarioService.crearUsuario(datosUsuario)
+      .subscribe(resp => {
+        console.log(resp);
+      }, (err)=>{
+        console.log(err.error.error.message);
+      }); 
     }, (err)=>{
       console.log(err.error.error.message);
     });
-
-    const datosUsuario = {
-      codigo: this.usuario.codigo,
-      nombreCompleto: this.usuario.nombreCompleto,
-      idCanal: this.usuario.idCanal,
-      email: this.usuario.email
-    }
-
-    this.usuarioService.crearUsuario(datosUsuario)
-    .subscribe(resp => {
-      console.log(resp);
-    }, (err)=>{
-      console.log(err.error.error.message);
-    }); 
   }
 }

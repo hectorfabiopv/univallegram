@@ -1,7 +1,7 @@
 export class usuarioModel {
     codigo: string;
     nombreCompleto: string;
-    idCanal: string;
+    uid: string;
     email: string;
     password: string;
     confirmPassword: string; 

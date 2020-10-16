@@ -4,4 +4,5 @@ export class videoModel {
     author: Object;
     playList: string;
     url: string; 
+    pic: string;
 }
